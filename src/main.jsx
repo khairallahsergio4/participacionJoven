@@ -6,7 +6,6 @@ import Jornada from './Components/Jornada.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    
     <Jornada/>
   </StrictMode>,
 )
