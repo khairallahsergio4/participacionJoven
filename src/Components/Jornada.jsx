@@ -17,15 +17,11 @@ import {
   Handshake 
 } from "lucide-react";
 
+import ModalFormulario from "./ModalFormulario";
 import yaninaIturre from "../assets/yanina.jpeg";
 
 export default function Jornada() {
-  // FORMULARIOS
-  const FORM_REGISTRO =
-    "https://forms.gle/TU_FORMULARIO_REGISTRO";
 
-  const FORM_ENCUESTA =
-    "https://docs.google.com/forms/d/e/TU_FORMULARIO_ENCUESTA/viewform?embedded=true";
 
   const ejes = [
     {
@@ -108,7 +104,23 @@ export default function Jornada() {
     },
   ];
 
+  const formularios = {
+  registro: {
+    titulo: "Registro",
+    url: "https://forms.fillout.com/t/d2MWbeYbZXus",
+  },
+  propuestas: {
+    titulo: "Compartir propuesta",
+    url: "https://forms.fillout.com/t/drWZqdQae1us",
+  },
+  encuesta: {
+    titulo: "Encuesta de evaluación",
+    url: "https://forms.fillout.com/t/whzzX5xAATus",
+  },
+};
+
   const [ejeSeleccionado, setEjeSeleccionado] = useState(null);
+  const [modal, setModal] = useState(null);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -121,6 +133,7 @@ export default function Jornada() {
       className="w-full max-h-[400px] object-cover"
     />
   </div>
+
 
   {/* CONTENIDO */}
   <div className="bg-white py-12">
@@ -143,11 +156,8 @@ export default function Jornada() {
 
       <div className="flex flex-col md:flex-row justify-center gap-4 mt-10">
 
-        <a
-          href={FORM_REGISTRO}
-          target="_blank"
-          rel="noreferrer"
-          className="
+        <button 
+         className="
             bg-[#2699d0]
             hover:bg-[#1f84b5]
             text-white
@@ -158,9 +168,11 @@ export default function Jornada() {
             shadow-lg
             transition
           "
-        >
-          Registrate
-        </a>
+        onClick={()=>setModal('registro')}>
+          Registrarse
+        </button>
+
+        
 
         <a
           href="#ejes"
@@ -184,7 +196,7 @@ export default function Jornada() {
       <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
 
         <div className="bg-gray-50 rounded-2xl p-5 shadow">
-          <div className="text-3xl font-bold text-[#2699d0]">7</div>
+          <div className="text-3xl font-bold text-[#2699d0]">10</div>
           <div className="text-gray-600">
             Ejes temáticos
           </div>
@@ -270,20 +282,18 @@ export default function Jornada() {
                   Ver información
                 </button>
 
-                <a
-                  href={eje.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="bg-[#2699d0] text-white px-5 py-3 rounded-xl hover:opacity-90 transition text-center"
-                >
-                  Compartir propuesta
-                </a>
+                <button
+                 className="bg-[#2699d0] text-white px-5 py-3 rounded-xl hover:opacity-90 transition text-center"
+                onClick={()=>setModal('propuestas')}>
+                     Compartir propuesta
+                </button>
               </div>
             </div>
           ))}
         </div>
       </section>
 
+         
       {/* ENCUESTA */}
       <section className="bg-white py-20">
         <div className="max-w-5xl mx-auto px-6">
@@ -298,18 +308,16 @@ export default function Jornada() {
  
           
           <div className="text-center">
-            <a
-              href="https://forms.gle/TU_ENCUESTA"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-green-800 text-white px-8 py-4 rounded-full font-bold"
-            >
+     
+
+            <button className="bg-green-800 text-white px-8 py-4 rounded-full font-bold" onClick={()=>setModal('encuesta')}>
               Completar Encuesta
-            </a>
+            </button>
           </div>
-          
         </div>
       </section>
+
+  
 
       {/* MODAL */}
       {ejeSeleccionado && (
@@ -344,7 +352,12 @@ export default function Jornada() {
         </div>
       )}
 
-
+      <ModalFormulario
+  abierto={!!modal}
+  onClose={() => setModal(null)}
+  titulo={modal ? formularios[modal].titulo : ""}
+  url={modal ? formularios[modal].url : ""}
+/>
 
       {/* FOOTER */}
       <footer className="bg-gray-900 text-gray-400 py-8">
