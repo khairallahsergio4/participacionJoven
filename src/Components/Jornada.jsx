@@ -29,7 +29,7 @@ export default function Jornada() {
       titulo: "Liderazgo Joven",
       descripcion:
         "Este eje busca fortalecer las capacidades de los jóvenes para asumir roles de liderazgo en su comunidad, promoviendo la participación, la toma de decisiones y el compromiso ciudadano. Se orienta a formar líderes capaces de identificar problemas, organizar equipos y generar soluciones para el desarrollo.",
-      link: "https://forms.gle/TU_FORMULARIO_TRANSPORTE",
+      
     },
 
     {
@@ -37,14 +37,14 @@ export default function Jornada() {
       titulo: "Empleo y primer trabajo",
       descripcion:
         "Tienen como objetivo facilitar la inserción laboral de los jóvenes, brindándoles herramientas, conocimientos y experiencias que mejoren sus oportunidades de acceso al mercado laboral.",
-      link: "https://forms.gle/TU_FORMULARIO_EMPLEO",
+     
     },
     {
       icon: <GraduationCap size={40} />,
       titulo: "Educación y formación profesional",
       descripcion:
         "Busca promover el acceso a la educación y la capacitación continua, fortaleciendo las competencias necesarias para el desarrollo personal de los jóvenes.",
-      link: "https://forms.gle/TU_FORMULARIO_EDUCACION",
+      
     },
 
     {
@@ -52,7 +52,7 @@ export default function Jornada() {
       titulo: "Deportes y vida saludable",
       descripcion:
         "Promueve hábitos saludables mediante la práctica deportiva, la actividad física y la concientización sobre el cuidado integral de la salud.",
-      link: "https://forms.gle/TU_FORMULARIO_DEPORTES",
+      
     },
 
     {
@@ -60,7 +60,7 @@ export default function Jornada() {
       titulo: "Cultura y recreación",
       descripcion:
         "Impulsa la participacion de los jóvenes en actividades culturales, artísticas y recreativas, fortaleciendo la identidad local y la integración social.",
-      link: "https://forms.gle/TU_FORMULARIO_TECNOLOGIA",
+      
     },
 
     {
@@ -68,7 +68,7 @@ export default function Jornada() {
       titulo: "Nuevas tecnologías e inteligencia artificial",
       descripcion:
         "Busca acercar a los jóvenes al mundo digital, promoviendo el uso responsable de la tecnología y el aprendizaje de herramientas innovadoras que mejoren sus oportunidades educativas y laborales.",
-      link: "https://forms.gle/TU_FORMULARIO_TECNOLOGIA",
+      
     },
 
     {
@@ -76,7 +76,7 @@ export default function Jornada() {
       titulo: "Medio ambiente y sustentabilidad",
       descripcion:
         "Promueve la conciencia ambiental y la participación activa de los jóvenes en acciones destinadas a proteger los recursos naturales y fomentar el desarrollo sostenible.",
-      link: "https://forms.gle/TU_FORMULARIO_AMBIENTE",
+      
     },
 
     {
@@ -84,7 +84,7 @@ export default function Jornada() {
       titulo: "Urbanización y modernización: desarrollo de la ciudad y los parajes",
       descripcion:
         "Busca generar propuestas para mejorar la infraestructura, los servicios y la conectividad de la ciudad y las zonas rurales, garantizando igualdad de oportunidades y mejora de la calidad de vida.",
-      link: "https://forms.gle/TU_FORMULARIO_URBANISMO",
+      
     },
 
         {
@@ -92,7 +92,7 @@ export default function Jornada() {
       titulo: "Economía local",
       descripcion:
         "Tiene como finalidad fortalecer la actividad económica local, apoyando a emprendedores, comerciantes y productores para generar más oportunidades de desarrollo y empleo.",
-      link: "https://forms.gle/TU_FORMULARIO_URBANISMO",
+      
     },
 
         {
@@ -100,7 +100,7 @@ export default function Jornada() {
       titulo: "Voluntariado y acción solidaria",
       descripcion:
         "Promueve el compromiso social de los jóvenes mediante acciones solidarias y proyectos comunitarios que contribuyan al bienestar colectivo.",
-      link: "https://forms.gle/TU_FORMULARIO_URBANISMO",
+      
     },
   ];
 
@@ -332,18 +332,15 @@ export default function Jornada() {
             </p>
 
             <div className="flex flex-col md:flex-row gap-3">
-              <a
-                href={ejeSeleccionado.link}
-                target="_blank"
-                rel="noreferrer"
+             
+              <button
                 className="bg-[#2699d0] text-white px-6 py-3 rounded-xl text-center"
-              >
-                Enviar propuesta
-              </a>
+                onClick={()=>setModal('propuestas')}
+              >Enviar propuesta</button>
 
               <button
                 onClick={() => setEjeSeleccionado(null)}
-                className="bg-gray-200 px-6 py-3 rounded-xl"
+                className="bg-red-500 px-6 py-3 rounded-xl text-amber-50"
               >
                 Cerrar
               </button>
