@@ -139,7 +139,7 @@ Este eje busca generar propuestas que fortalezcan el compromiso con el ambiente,
 
         {
       icon: <Handshake  size={40} />,
-      titulo: "Voluntariado y acción solidaria",
+      titulo: "Voluntariado y Acción Solidaria",
       descripcion:`El voluntariado es una forma de participación social mediante la cual las personas ofrecen su tiempo, conocimientos y esfuerzo de manera libre, responsable y desinteresada para colaborar con quienes necesitan ayuda o para mejorar la comunidad. 
       
       La acción solidaria es toda actividad realizada con el propósito de ayudar a otras personas, promover el bienestar común y contribuir a la solución de problemas sociales, ambientales o comunitarios. Se basa en el compromiso con los demás y en la búsqueda de una sociedad más justa e igualitaria. 
