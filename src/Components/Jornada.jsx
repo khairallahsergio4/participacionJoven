@@ -1,5 +1,8 @@
 import { useState } from "react";
-import {
+import ModalFormulario from "./ModalFormulario";
+import yaninaIturre from "../assets/yanina.jpeg";
+
+  import {
   Users,
   Lightbulb,
   Bus,
@@ -9,100 +12,16 @@ import {
   Trees,
   Briefcase,
   Building2,
-
-
   SquareUserRound,
   Clapperboard,
   Wallet,
   Handshake 
 } from "lucide-react";
 
-import ModalFormulario from "./ModalFormulario";
-import yaninaIturre from "../assets/yanina.jpeg";
+
+import ejes from "./ejes.jsx";
 
 export default function Jornada() {
-
-
-  const ejes = [
-    {
-      icon: <SquareUserRound  size={40} />,
-      titulo: "Liderazgo Joven",
-      descripcion:
-        "Este eje busca fortalecer las capacidades de los jóvenes para asumir roles de liderazgo en su comunidad, promoviendo la participación, la toma de decisiones y el compromiso ciudadano. Se orienta a formar líderes capaces de identificar problemas, organizar equipos y generar soluciones para el desarrollo.",
-      
-    },
-
-    {
-      icon: <Briefcase size={40} />,
-      titulo: "Empleo y primer trabajo",
-      descripcion:
-        "Tienen como objetivo facilitar la inserción laboral de los jóvenes, brindándoles herramientas, conocimientos y experiencias que mejoren sus oportunidades de acceso al mercado laboral.",
-     
-    },
-    {
-      icon: <GraduationCap size={40} />,
-      titulo: "Educación y formación profesional",
-      descripcion:
-        "Busca promover el acceso a la educación y la capacitación continua, fortaleciendo las competencias necesarias para el desarrollo personal de los jóvenes.",
-      
-    },
-
-    {
-      icon: <Trophy size={40} />,
-      titulo: "Deportes y vida saludable",
-      descripcion:
-        "Promueve hábitos saludables mediante la práctica deportiva, la actividad física y la concientización sobre el cuidado integral de la salud.",
-      
-    },
-
-    {
-      icon: <Clapperboard size={40} />,
-      titulo: "Cultura y recreación",
-      descripcion:
-        "Impulsa la participacion de los jóvenes en actividades culturales, artísticas y recreativas, fortaleciendo la identidad local y la integración social.",
-      
-    },
-
-    {
-      icon: <Laptop size={40} />,
-      titulo: "Nuevas tecnologías e inteligencia artificial",
-      descripcion:
-        "Busca acercar a los jóvenes al mundo digital, promoviendo el uso responsable de la tecnología y el aprendizaje de herramientas innovadoras que mejoren sus oportunidades educativas y laborales.",
-      
-    },
-
-    {
-      icon: <Trees size={40} />,
-      titulo: "Medio ambiente y sustentabilidad",
-      descripcion:
-        "Promueve la conciencia ambiental y la participación activa de los jóvenes en acciones destinadas a proteger los recursos naturales y fomentar el desarrollo sostenible.",
-      
-    },
-
-    {
-      icon: <Building2 size={40} />,
-      titulo: "Urbanización y modernización: desarrollo de la ciudad y los parajes",
-      descripcion:
-        "Busca generar propuestas para mejorar la infraestructura, los servicios y la conectividad de la ciudad y las zonas rurales, garantizando igualdad de oportunidades y mejora de la calidad de vida.",
-      
-    },
-
-        {
-      icon: <Wallet size={40} />,
-      titulo: "Economía local",
-      descripcion:
-        "Tiene como finalidad fortalecer la actividad económica local, apoyando a emprendedores, comerciantes y productores para generar más oportunidades de desarrollo y empleo.",
-      
-    },
-
-        {
-      icon: <Handshake  size={40} />,
-      titulo: "Voluntariado y acción solidaria",
-      descripcion:
-        "Promueve el compromiso social de los jóvenes mediante acciones solidarias y proyectos comunitarios que contribuyan al bienestar colectivo.",
-      
-    },
-  ];
 
   const formularios = {
   registro: {
@@ -262,6 +181,7 @@ export default function Jornada() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {ejes.map((eje, index) => (
+            
             <div
               key={index}
               className="bg-white rounded-3xl shadow-lg p-8 hover:-translate-y-2 transition"
@@ -319,7 +239,7 @@ export default function Jornada() {
 
   
 
-      {/* MODAL */}
+      {/* MODAL
       {ejeSeleccionado && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
           <div className="bg-white max-w-xl w-full rounded-3xl p-8 shadow-2xl">
@@ -327,7 +247,7 @@ export default function Jornada() {
               {ejeSeleccionado.titulo}
             </h2>
 
-            <p className="text-gray-600 mb-8 leading-relaxed">
+            <p className="text-gray-600 mb-8 leading-relaxed whitespace-pre-line">
               {ejeSeleccionado.descripcion}
             </p>
 
@@ -349,12 +269,54 @@ export default function Jornada() {
         </div>
       )}
 
+
+
+{/* MODAL */}
+{ejeSeleccionado && (
+  <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+    <div className="bg-white max-w-3xl w-full max-h-[90vh] rounded-3xl shadow-2xl flex flex-col">
+
+      {/* Cabecera */}
+      <div className="p-8 pb-4">
+        <h2 className="text-3xl font-bold">
+          {ejeSeleccionado.titulo}
+        </h2>
+      </div>
+
+      {/* Contenido con scroll */}
+      <div className="px-8 overflow-y-auto flex-1">
+        <p className="text-gray-600 leading-relaxed whitespace-pre-line text-justify">
+          {ejeSeleccionado.descripcion}
+        </p>
+      </div>
+
+      {/* Botones fijos */}
+      <div className="p-8 pt-4 flex flex-col md:flex-row gap-3 ">
+        <button
+          className="bg-[#2699d0] text-white px-6 py-3 rounded-xl"
+          onClick={() => setModal("propuestas")}
+        >
+          Enviar propuesta
+        </button>
+
+        <button
+          onClick={() => setEjeSeleccionado(null)}
+          className="bg-red-500 text-white px-6 py-3 rounded-xl"
+        >
+          Cerrar
+        </button>
+      </div>
+
+    </div>
+  </div>
+)}
+
       <ModalFormulario
   abierto={!!modal}
   onClose={() => setModal(null)}
   titulo={modal ? formularios[modal].titulo : ""}
   url={modal ? formularios[modal].url : ""}
-/>
+/> 
 
       {/* FOOTER */}
       <footer className="bg-gray-900 text-gray-400 py-8">
