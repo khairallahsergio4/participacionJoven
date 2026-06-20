@@ -70,7 +70,7 @@ export default function Jornada() {
       </p>
 
       <p className="mt-8 text-lg text-gray-600 max-w-3xl mx-auto text-justify">
-       Binvenidos a la primera Jornada de Participación Juvenil, un espacio pensando para compartir ideas y crecer como ciudad. A continuación te invitamos a registrarte como asistente de la jornada.
+       Bienvenidos a la primera Jornada de Participación Juvenil, un espacio pensando para compartir ideas y crecer como ciudad. A continuación te invitamos a registrarte como asistente de la jornada.
       </p>
 
       <div className="flex flex-col md:flex-row justify-center gap-4 mt-10">
